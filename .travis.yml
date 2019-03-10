@@ -1,0 +1,10 @@
+sudo: required
+services:
+      - docker 
+
+before_install: 
+      - docker build -t maniks/docker-react -f Dockerfile.dev .
+      
+script:
+      - docker run maniks/docker-react npm run test -- --coverage
+      
